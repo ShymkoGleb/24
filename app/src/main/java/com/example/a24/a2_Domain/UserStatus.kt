@@ -1,4 +1,4 @@
-package com.example.a24.a2_Domain.Mapper
+package com.example.a24.a2_Domain
 
 enum class UserStatus {
     NORMAL,

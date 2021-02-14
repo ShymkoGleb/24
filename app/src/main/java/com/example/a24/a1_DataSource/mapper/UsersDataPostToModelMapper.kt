@@ -1,13 +1,13 @@
-package com.example.a24.a1_DataSource.Mapper
+package com.example.a24.a1_DataSource.mapper
 
-import com.example.a24.a1_DataSource.Model.UsersPost_DataSource_Model
-import com.example.a24.a1_DataSource.Source.Model.UsersPosts_FromJSON_Model
+import com.example.a24.a1_DataSource.model.UsersPostDataSourceModel
+import com.example.a24.a1_DataSource.source.model.UsersPostsFromJSONModel
 
 class UsersDataPostToModelMapper {
-    fun map(responses: List<UsersPosts_FromJSON_Model>?): List<UsersPost_DataSource_Model>? {
+    fun map(responses: List<UsersPostsFromJSONModel>?): List<UsersPostDataSourceModel>? {
         return responses?.let {
             responses.map {
-                UsersPost_DataSource_Model(
+                UsersPostDataSourceModel(
                     it.id.orZero(),
                     it.userId.orZero(),
                     it.title.orEmpty(),

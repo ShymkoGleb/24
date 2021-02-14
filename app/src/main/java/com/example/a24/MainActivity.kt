@@ -1,9 +1,14 @@
 package com.example.a24
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.a24.a1_DataSource.Repository.impl.UserPost_Datasorce_Impl
-import com.example.a24.a1_DataSource.Source.Exe.UsersPost_FromJson_Exe
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.a24.a3_UI.modelUi.UsersPostUIModel
+import com.example.a24.a3_UI.recyclerViewAdapter.RecyclerViewAdapter
+import com.example.a24.databinding.ActivityMainBinding
+
 /*Додаток, де можна переглядати пости, які отримуються по цьому запиту:
 https://jsonplaceholder.typicode.com/posts
 На UI потрібно показувати userId, title, body. Дизайн на ваш розсуд.
@@ -15,12 +20,36 @@ https://jsonplaceholder.typicode.com/posts
 Наприклад, у звичайних постів білий фон, а у тих, що з попередженням — червоний.
 */
 class MainActivity : AppCompatActivity() {
+
+    private val viewModel: MainViewModel by viewModels()
+    private lateinit var binding: ActivityMainBinding
+    private var adapter: RecyclerViewAdapter? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setupDataBinding()
+        setupAdapter()
+     //   updateUsersPosts()
+        viewModel.getUsersPost()
+    }
 
 
 
+    private fun setupDataBinding() {
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+    }
 
+    private fun setupAdapter() {
+       adapter= RecyclerViewAdapter()
+        binding.rvUserData.adapter = adapter
+        binding.rvUserData.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+    }
+
+    private fun updateUsersPosts(usersPostsList:List<UsersPostUIModel>){
+        adapter?.updateAdapter(usersPostsList)
     }
 }
+
+
