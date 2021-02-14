@@ -1,5 +1,7 @@
 package com.example.a24.a3_UI.recyclerViewAdapter
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +21,6 @@ class RecyclerViewAdapter : RecyclerView.Adapter<UsersPostViewHolder>() {
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.recycler_view_tamplate, parent, false)
         )
-
 
     override fun getItemCount(): Int {
         return usersPostsList.size
@@ -41,12 +42,17 @@ class UsersPostViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     private val binding = DataBindingUtil.bind<RecyclerViewTamplateBinding>(view)!!
 
+    @SuppressLint("ResourceType")
     fun bind(model: UsersPostUIModel) {
-        binding.xml=model
-   /*     if (model.status==UserStatus.WARNING){
-        }*/
-//        binding.tvUserID.text = model.userId.toString()
-//        binding.tvTitle.text = model.title.toString()
-//        binding.tvBody.text = model.body.toString()
+        binding.xml = model
+        if (model.status == UserStatus.NORMAL) {
+            binding.tvBody.setBackgroundColor(Color.parseColor("#FFFFFF"))
+        }
+        else if (model.status == UserStatus.WARNING) {
+            binding.tvBody.setBackgroundColor(Color.parseColor("#FFD900"))
+        }
+        else if (model.status == UserStatus.BANNED) {
+            binding.tvBody.setBackgroundColor(Color.parseColor("#FF0000"))
+        }
     }
 }

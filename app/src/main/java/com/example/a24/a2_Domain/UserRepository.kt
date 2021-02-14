@@ -5,7 +5,4 @@ class UserRepository {
          val ListOfIdForUserWithBann = listOf<Int>(7)
          val ListOfIdForUserWithWarning = listOf<Int>(3, 4)
     }
-
-    fun getUsersWithWarning() = listOf(3, 4)
-    fun getUsersWithBan() = listOf(7)
 }
