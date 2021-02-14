@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a24.R
+import com.example.a24.a2_Domain.UserStatus
 import com.example.a24.a3_UI.modelUi.UsersPostUIModel
 import com.example.a24.databinding.RecyclerViewTamplateBinding
 
@@ -41,6 +42,11 @@ class UsersPostViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val binding = DataBindingUtil.bind<RecyclerViewTamplateBinding>(view)!!
 
     fun bind(model: UsersPostUIModel) {
-        binding.xml = model
+        binding.xml=model
+   /*     if (model.status==UserStatus.WARNING){
+        }*/
+//        binding.tvUserID.text = model.userId.toString()
+//        binding.tvTitle.text = model.title.toString()
+//        binding.tvBody.text = model.body.toString()
     }
 }

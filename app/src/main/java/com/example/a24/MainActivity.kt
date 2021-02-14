@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a24.a3_UI.modelUi.UsersPostUIModel
 import com.example.a24.a3_UI.recyclerViewAdapter.RecyclerViewAdapter
@@ -31,10 +32,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setupDataBinding()
         setupAdapter()
-     //   updateUsersPosts()
+        observeUsersPost()
+        //   updateUsersPosts()
         viewModel.getUsersPost()
+
     }
 
+    private fun observeUsersPost() {
+        viewModel.reposUsersPostsLiveData.observe(this, Observer {
+            updateUsersPosts(it)
+        })
+    }
 
 
     private fun setupDataBinding() {
@@ -42,12 +50,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupAdapter() {
-       adapter= RecyclerViewAdapter()
+        adapter = RecyclerViewAdapter()
         binding.rvUserData.adapter = adapter
-        binding.rvUserData.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        binding.rvUserData.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     }
 
-    private fun updateUsersPosts(usersPostsList:List<UsersPostUIModel>){
+    private fun updateUsersPosts(usersPostsList: List<UsersPostUIModel>) {
         adapter?.updateAdapter(usersPostsList)
     }
 }
