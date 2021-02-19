@@ -1,12 +1,11 @@
-package com.example.a24
+package com.example.a24.a3_UI
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.a24.a1_DataSource.mapper.UsersDataPostToModelMapper
 import com.example.a24.a1_DataSource.repository.impl.UserPostDatasorceImpl
-import com.example.a24.a1_DataSource.source.exe.UsersPostFromJsonExe
+import com.example.a24.a1_DataSource.source.interner.exe.UsersPostFromJsonExe
 import com.example.a24.a2_Domain.UserRepository
 import com.example.a24.a2_Domain.mapper.UserPostDomainToUIMapper
 import com.example.a24.a2_Domain.useCase.UserPostGetUseCase
@@ -43,4 +42,5 @@ class MainViewModel : ViewModel() {
             }
         }
     }
+
 }

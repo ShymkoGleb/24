@@ -1,26 +1,32 @@
 package com.example.a24.a1_DataSource.repository.impl
 
-import com.example.a24.a1_DataSource.Sourc.Api
 import com.example.a24.a1_DataSource.mapper.UsersDataPostToModelMapper
 import com.example.a24.a1_DataSource.model.UsersPostDataSourceModel
 import com.example.a24.a1_DataSource.repository.UserPostDatasorceInterface
-import com.example.a24.a1_DataSource.source.exe.UsersPostFromJsonExe
-import com.example.a24.a1_DataSource.source.model.UsersPostsFromJSONModel
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import com.example.a24.a1_DataSource.source.interner.exe.UsersPostFromJsonExe
+import com.example.a24.a1_DataSource.source.usersCustomPost.exe.UsersPostFromApplicationExe
 
 open class UserPostDatasorceImpl(
 
 
-    private val usersPost_FromJson_Exe: UsersPostFromJsonExe,
+    private val usersPostFromJsonExe: UsersPostFromJsonExe,
+    //private val usersPostFromApplicationExe: UsersPostFromApplicationExe,
     private val usersDataPostToModelMapper: UsersDataPostToModelMapper
 ) : UserPostDatasorceInterface {
 
     override fun getPostsFromDataSource(): List<UsersPostDataSourceModel>? {
         return usersDataPostToModelMapper.map(
-            usersPost_FromJson_Exe.getUsersPost().orEmpty()
+            usersPostFromJsonExe.getUsersPost().orEmpty()
         )
     }
+
+    fun addPostFromApplication(){
+
+    }
+
+
+
+
 }
 
 /*

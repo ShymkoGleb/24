@@ -5,4 +5,5 @@ import com.example.a24.a1_DataSource.model.UsersPostDataSourceModel
 interface UserPostDatasorceInterface {
 
   open fun getPostsFromDataSource(): List<UsersPostDataSourceModel>?
+  // open fun getPostsFromDataSource(): List<UsersPostDataSourceModel>?
 }

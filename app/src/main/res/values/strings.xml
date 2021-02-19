@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">24</string>
+    <string name="btnAddPost">Add post</string>
+    <string name="etAddTitle_hint">Add a title</string>
+    <string name="etAddBody_hint">Add a body</string>
+    <string name="btnGoToMain">Main Page</string>
 </resources>

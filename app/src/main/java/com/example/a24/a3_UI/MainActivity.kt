@@ -1,11 +1,14 @@
-package com.example.a24
+package com.example.a24.a3_UI
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.a24.R
 import com.example.a24.a3_UI.modelUi.UsersPostUIModel
 import com.example.a24.a3_UI.recyclerViewAdapter.RecyclerViewAdapter
 import com.example.a24.databinding.ActivityMainBinding
@@ -22,6 +25,15 @@ https://jsonplaceholder.typicode.com/posts
 */
 class MainActivity : AppCompatActivity() {
 
+    companion object{
+        fun start(context: Context){
+            val intent=Intent(context, MainActivity::class.java)
+            context.startActivity(intent)
+        }
+
+    }
+
+
     private val viewModel: MainViewModel by viewModels()
     private lateinit var binding: ActivityMainBinding
     private var adapter: RecyclerViewAdapter? = null
@@ -35,7 +47,13 @@ class MainActivity : AppCompatActivity() {
         observeUsersPost()
         //   updateUsersPosts()
         viewModel.getUsersPost()
+        setupButtonListener()
+    }
 
+    private fun setupButtonListener() {
+        binding.btnAddPost.setOnClickListener {
+            AddPostActivity.start(this)
+        }
     }
 
     private fun observeUsersPost() {
