@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.a24.R
-import com.example.a24.a3_UI.postRulers.CheckPostRules
 import com.example.a24.databinding.ActivityAddPostBinding
 import java.sql.Timestamp
 
@@ -20,7 +19,6 @@ class AddPostActivity : AppCompatActivity() {
     }
 
     lateinit var binding: ActivityAddPostBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,9 +39,7 @@ class AddPostActivity : AppCompatActivity() {
             var userPostBody = binding.etAddBody.text.toString()
             var userPostTitle = binding.etAddTitle.text.toString()
 
-
             checkPostRules(userPostBody, userPostTitle)
-
         }
     }
 
@@ -53,14 +49,16 @@ class AddPostActivity : AppCompatActivity() {
         println(postRules.checkLenghtBody())
 
         if (postRules.checkLenghtTitle() && postRules.checkLenghtBody()) {
-            updateRepository(userPostBody,userPostTitle,20,Timestamp(System.currentTimeMillis()))
+            updateRepository(userPostBody, userPostTitle, 20, Timestamp(System.currentTimeMillis()))
             println(Timestamp(System.currentTimeMillis()))
         }
-
-
     }
 
-    private fun updateRepository(userPostBody: String, userPostTitle: String, id:Int, timestamp: Timestamp) {
-
+    private fun updateRepository(
+        userPostBody: String,
+        userPostTitle: String,
+        id: Int,
+        timestamp: Timestamp
+    ) {
     }
 }

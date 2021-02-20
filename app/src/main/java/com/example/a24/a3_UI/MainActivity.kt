@@ -30,10 +30,7 @@ class MainActivity : AppCompatActivity() {
             val intent=Intent(context, MainActivity::class.java)
             context.startActivity(intent)
         }
-
     }
-
-
     private val viewModel: MainViewModel by viewModels()
     private lateinit var binding: ActivityMainBinding
     private var adapter: RecyclerViewAdapter? = null
@@ -45,7 +42,6 @@ class MainActivity : AppCompatActivity() {
         setupDataBinding()
         setupAdapter()
         observeUsersPost()
-        //   updateUsersPosts()
         viewModel.getUsersPost()
         setupButtonListener()
     }

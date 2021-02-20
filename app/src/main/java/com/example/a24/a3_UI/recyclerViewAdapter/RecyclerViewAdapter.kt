@@ -46,13 +46,13 @@ class UsersPostViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     fun bind(model: UsersPostUIModel) {
         binding.xml = model
         if (model.status == UserStatus.NORMAL) {
-            binding.tvBody.setBackgroundColor(Color.parseColor("#FFFFFF"))
+            binding.rvLayout.setBackgroundColor(Color.parseColor("#FFFFFF"))
         }
         else if (model.status == UserStatus.WARNING) {
-            binding.tvBody.setBackgroundColor(Color.parseColor("#FFD900"))
+            binding.rvLayout.setBackgroundColor(Color.parseColor("#FFD900"))
         }
         else if (model.status == UserStatus.BANNED) {
-            binding.tvBody.setBackgroundColor(Color.parseColor("#FF0000"))
+            binding.rvLayout.setBackgroundColor(Color.parseColor("#FF0000"))
         }
     }
 }

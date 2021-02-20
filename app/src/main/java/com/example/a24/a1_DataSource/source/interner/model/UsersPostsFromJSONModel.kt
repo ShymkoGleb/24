@@ -8,5 +8,5 @@ data class UsersPostsFromJSONModel(
     @SerializedName("userId") val userId: Int? = null,
     @SerializedName("title") val title: String? = null,
     @SerializedName("body") val body: String? = null,
-        val timestamp: Timestamp?= null
+    val timestamp: Timestamp
 )

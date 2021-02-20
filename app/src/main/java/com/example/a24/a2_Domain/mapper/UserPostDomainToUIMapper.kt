@@ -9,11 +9,6 @@ class UserPostDomainToUIMapper(
     private val usersRepository: UserRepository
 ) {
     fun map(models: List<UsersPostDataSourceModel>?): List<UsersPostUIModel>? {
-
-
-//        val bannedUsers = usersRepository.getUsersWithBan()
-//        val userWithWarning = usersRepository.getUsersWithWarning()
-
         return models?.let {
             models.map {
                 if (it.userId in UserRepository.ListOfIdForUserWithWarning) {
@@ -40,4 +35,3 @@ class UserPostDomainToUIMapper(
         }
     }
 }
-

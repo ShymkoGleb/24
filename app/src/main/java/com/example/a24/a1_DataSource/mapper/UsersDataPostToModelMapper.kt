@@ -16,19 +16,6 @@ class UsersDataPostToModelMapper {
             }
         }
     }
-
-  /*  fun mapFromApplicaionModel()(responses: List<UsersPostsFromJSONModel>?): List<UsersPostDataSourceModel>? {
-        return responses?.let {
-            responses.map {
-                UsersPostDataSourceModel(
-                    it.id.orZero(),
-                    it.userId.orZero(),
-                    it.title.orEmpty(),
-                    it.body.orEmpty()
-                )
-            }
-        }
-    }*/
 }
 
 private fun Int?.orZero(): Int? = this ?: 0

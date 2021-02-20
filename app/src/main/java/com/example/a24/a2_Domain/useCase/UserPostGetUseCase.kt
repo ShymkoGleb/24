@@ -13,7 +13,6 @@ private val usersPostDomainToUIMapper: UserPostDomainToUIMapper
     suspend fun execute(): List<UsersPostUIModel>? {
         return usersPostDomainToUIMapper.map(usersPostDatasorceInterface.getPostsFromDataSource())
     }
-
 }
 
 
